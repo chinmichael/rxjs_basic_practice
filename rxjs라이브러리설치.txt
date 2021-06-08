@@ -31,3 +31,16 @@ RxJS 5.0.0-beta.1 ~ beta.11 : https://unpkg.com/@reactivex/rxjs@version/dist/glo
 RxJS 5.0.0-beta.12 이상 : https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js
 
 6.0이상 https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js >> @version을 지우면 최신 버전으로 깔린다
+
+
+만약 warning: CRLF will be replaced by LF in some/file.file. 에러가 깃 저장시 node 모듈쪽에서 발생한다면
+이는 유닉스(리눅스, 맥)의 줄의 끝이 LF(Line Feed)인 반면 윈도우는 CR(Carriage Return) + LF 이기에 이를 적절히 자동 변환해주는 아래 명령어로 설정을 저장한다
+
+git config --global core.autocrlf true 로 하여 해결
+
+리눅스의 경우 LF를 CRLF로 변환하는 것을 원치 않으므로
+
+git config --global core.autocrlf true input 으로 단방향 적용
+
+그냥 에러메시지를 끄려면
+git config --global core.safecrlf false
