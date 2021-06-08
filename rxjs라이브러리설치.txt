@@ -1,0 +1,33 @@
+npm 설치
+
+npm install rxjs
+
+필요한 파일에 import 하기
+ex)
+import {of} from 'rxjs';
+import {map} from 'rxjs/operators';
+
+ex) 전체 코어 함수 받으려면
+import * as from 'rxjs';
+
+ex) To use with a globally imported bundle:
+const { of } = rxjs;
+const { map } = rxjs.operators;
+
+설치 에러
+Cannot find name 'Promise' or error TS2304:
+install es6-shim --ambient
+
+npm 버전이 3이라면
+npm install @reactivex/rxjs
+
+버전이 2라면 라이브러리 버전도 명시해야함
+npm install @reactivex/rxjs@버전
+
+CDN
+
+RxJS 5.0.0-beta.1 ~ beta.11 : https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js
+
+RxJS 5.0.0-beta.12 이상 : https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js
+
+6.0이상 https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js >> @version을 지우면 최신 버전으로 깔린다
