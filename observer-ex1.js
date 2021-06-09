@@ -1,4 +1,5 @@
 // Observer(관찰자 -> 구독자)에게 발행물 구독(Observable 발행값 -> Subscribe) 시키기
+// Observer : Observable = 데이터의 흐름 발생 -> Observer 발생한 데이터를 가지고 동작을 취하는 주체
 
 
 // 1. Observer 생성해 구독시키기
