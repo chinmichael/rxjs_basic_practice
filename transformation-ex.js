@@ -121,8 +121,11 @@ zip(obs_zip4$, obs_zip2$, obs_zip3$).subscribe(console.log);
 
 const obs_zip5$ = interval(1000);
 const obs_zip6$ = fromEvent(document, 'click').pipe(pluck('x'));
+// pipe 연산 결과도 observable이니까 zip으로 엮는 것이 가능
 
 zip(obs_zip5$, obs_zip6$).subscribe(console.log);
+// 스트림 발행 시간이 아니라 순서와 개수를 기준으로 엮음
+
 // 이렇게 두 개를 엮으면 1초에 클릭 이벤트 한개씩 엮게 하므로 다중클릭, 연속 클릭 방지가 됨
 // 근데 이 경우는 오래 기다려서 interval이 쌓여 있음 그만큼 연속클릭이나 다중클릭이 되므로 좋은 방식이 아님
 
