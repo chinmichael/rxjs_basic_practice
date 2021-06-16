@@ -60,7 +60,7 @@ const { ajax } = rxjs.ajax;
 
 const obs_pluck2$ = ajax(`http://api.github.com/search/users?q=user:mojombo`).pipe(
     pluck('response', 'items', 0, 'html_url') // pluck을 주석하면 ajax get요청의 무수한 정보를 볼수 있을거임....
-); // 이렇게 observable을 아예 걸러서 뽑아내기도 함 >> 파이프를 거친것도 역시 스트림이란 것
+); // 이렇게 observable을 아예 걸러서 뽑아내기도 함 >> ☆ 파이프를 거친것의 반환값도 observable이므로
 
 obs_pluck2$.subscribe(console.log);
 
@@ -101,7 +101,7 @@ obs_scan1$.pipe(
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 5. zip operator
-// >> rxjs.operator가 아닌 rxjs에서 로드하는 것 주의 >> observable 만드는 것에 관여
+// >> rxjs.operator가 아닌 rxjs에서 로드하는 것 주의 >> observable 만드는 연산자
 // >> 두 스트림을 엮어 배열을 만듦, .zip이 아니라 zipper을 생각
 
 const { interval, fromEvent, zip } = rxjs;
@@ -110,7 +110,7 @@ const obs_zip1$ = from([1, 2, 3, 4, 5]);
 const obs_zip2$ = from(['a', 'b', 'c', 'd', 'e']);
 const obs_zip3$ = from([true, false, 'F', [6, 7, 8], { name: 'zip' }]);
 
-zip(obs_zip1$, obs_zip2$).subscribe(console.log);
+zip(obs_zip1$, obs_zip2$).subscribe(console.log); // 두개 이상 observable 스트림을 배열로 엮어 새 observable만듦
 zip(obs_zip1$, obs_zip2$, obs_zip3$).subscribe(console.log); // zipper처럼 합친다고 했지만 2개 이상의 스트림 엮는거 가능
 
 const obs_zip4$ = from([1, 2, 3, 4, 5, 6, 7]);
